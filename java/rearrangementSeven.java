@@ -34,7 +34,6 @@ public class rearrangementSeven {
             }
         }
 
-        Integer max = 0;
         Integer[] window = new Integer[len];
         int[] recorder = new int[len];
         Arrays.fill(recorder, 0);
@@ -43,7 +42,8 @@ public class rearrangementSeven {
         }
 
         boolean isFirstTime = true;
-        while(max < theMax) {
+        boolean continuing = true;
+        while(continuing) {
             if(!isFirstTime) {
                 for(int i = 0 ; i < len; i ++) {
                     window[i] = window[i] + len;
@@ -56,15 +56,16 @@ public class rearrangementSeven {
                 int currect = window[i];
                 if(forSure(currect)) {
                     recorder[i] ++;
-                    if( recorder[i] > max) {
-                        max = recorder[i];
+                    if( recorder[i] >= theMax) {
+                        continuing = false;
+                        break;
                     }
                 }
             }
         }
 
         for(int i = 0; i < len; i ++) {
-            System.out.println(recorder[i] + " ");
+            System.out.print(recorder[i] + " ");
         }
     }
 
