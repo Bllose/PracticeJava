@@ -1,4 +1,6 @@
-package rearrangement;/*
+package rearrangement;
+
+/*
 * 喊7的次数重排
 *
 * 喊7是一个传统的聚会游戏，N个人围成一圈，按顺时针从1到N编号。
