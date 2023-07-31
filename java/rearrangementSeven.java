@@ -17,31 +17,69 @@
 *   100
 * */
 
-import java.util.List;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class rearrangementSeven {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         Integer theMax = 0;
-        int len = 0;
-        while(in.hasNext()) {
-            int inputNumber = in.nextInt();
+        String inputString = in.nextLine();
+        String[] inputArray = inputString.split(" ");
+        int len = inputArray.length;
+        for(int i = 0 ; i < inputArray.length; i ++){
+            int inputNumber = Integer.valueOf(inputArray[i]);
             if( inputNumber > theMax ) {
                 theMax = inputNumber;
             }
-            len ++;
         }
 
         Integer max = 0;
         Integer[] window = new Integer[len];
+        int[] recorder = new int[len];
+        Arrays.fill(recorder, 0);
         for(int i = 0 ; i < len; i ++) {
             window[i] = i + 1;
         }
 
+        boolean isFirstTime = true;
         while(max < theMax) {
+            if(!isFirstTime) {
+                for(int i = 0 ; i < len; i ++) {
+                    window[i] = window[i] + len;
+                }
+            } else {
+                isFirstTime = false;
+            }
 
+            for(int i = 0 ; i < len; i ++) {
+                int currect = window[i];
+                if(forSure(currect)) {
+                    recorder[i] ++;
+                    if( recorder[i] > max) {
+                        max = recorder[i];
+                    }
+                }
+            }
         }
 
+        for(int i = 0; i < len; i ++) {
+            System.out.println(recorder[i] + " ");
+        }
+    }
+
+    public static boolean forSure(int currect) {
+        if(currect % 7 == 0) {
+            return true;
+        }
+
+        while(currect > 6) {
+            int temp = currect % 10;
+            if(temp == 7) {
+                return true;
+            }
+            currect = currect / 10;
+        }
+        return false;
     }
 }
