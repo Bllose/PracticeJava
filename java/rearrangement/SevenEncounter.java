@@ -22,6 +22,14 @@ package rearrangement;
 import java.util.Arrays;
 import java.util.Scanner;
 
+/**
+ * 总体思路：
+ *  1、输入位数确定窗口大小，输入最大值确定我们的目标。
+ *  2、通过窗口平移，遍历喊7过程。每次喊7都对比一下目标。
+ *  3、达到目标则直接输出窗口所记录的喊7数组。
+ *
+ *  该思路核心是窗口平移，但是问题在于未考虑目标的重复性。即最大目标可能出现多次。
+ */
 public class SevenEncounter {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
