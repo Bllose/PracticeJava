@@ -22,7 +22,7 @@ package rearrangement;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class rearrangementSeven {
+public class SevenEncounter {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         Integer theMax = 0;
