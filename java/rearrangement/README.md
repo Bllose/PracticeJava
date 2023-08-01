@@ -1,4 +1,4 @@
-# 遗留问题
+# 题目记录
 ## [SevenEncounter](https://github.com/Bllose/PracticeJava/blob/main/java/rearrangement/SevenEncounter.java)
 ```
 喊7是一个传统的聚会游戏，N个人围成一圈，按顺时针从1到N编号。
