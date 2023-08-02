@@ -40,6 +40,9 @@ public class SevenEncounterOne {
             input[i] = 0; // 制0，用于记录喊7记录
         }
 
+        /*
+        通过喊7次数作为循环边界，循环次序作为队列排序。将逻辑与实际情况镶嵌在一起，增加代码的使用效率。
+         */
         for(int i = 1; sum > 0; i ++ ) {
             if(i%7 == 0 || String.valueOf(i).indexOf("7") > 0) {
                 input[i%input.length-1] ++;
