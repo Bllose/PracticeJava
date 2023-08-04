@@ -1,7 +1,8 @@
 package rearrangement;
 
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Collectors;
+
 /**
  * <p>
  * 【数字排列】小明负责公司年会，想出一个趣味游戏：
@@ -28,7 +29,7 @@ public class Star2Numeric {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         String[] inputHolder = in.nextLine().split(",");
-        int[] input = new int[inputHolder.length];
+        Integer[] input = new Integer[inputHolder.length];
         for(int i = 0 ; i < inputHolder.length; i ++) {
             input[i] = Integer.valueOf(inputHolder[i]);
         }
@@ -36,20 +37,40 @@ public class Star2Numeric {
         processer(input);
     }
 
-    public static void processer(int[] input) {
-        StringBuffer sb = new StringBuffer();
+    public static void processer(Integer[] input) {
+        List<Integer> inputList = new ArrayList<>(Arrays.asList(input));
+        int index = Collections.max(inputList); // 数据所处位置
+        int originalLen = inputList.size();
 
-        for(int cur : input) {
-            sb.append(cur);
-            switch(cur){
-                case 2: sb.append(5); break;
-                case 5: sb.append(2); break;
-                case 6: sb.append(9); break;
-                case 9: sb.append(6); break;
+        for(int i = 0; i < originalLen; i ++) {
+            int cur = inputList.get(i);
+            switch(cur) {
+                case 2: inputList.add(5); break;
+                case 5: inputList.add(2); break;
+                case 6: inputList.add(9); break;
+                case 9: inputList.add(6); break;
             }
         }
 
-        int[] holder = new int[sb.length()];
-
+        List<Integer> sorted = inputList.stream().sorted().collect(Collectors.toList());
+        int LEN = sorted.size();
+        if(index <= LEN) {
+            System.out.println(sorted.get(index - 1));
+        } else {
+            int i = index - LEN;
+            int ten = i / (LEN - 1);
+            int yushu = i % (LEN - 1);
+            for(int j = 0; j < sorted.size() ; j ++) {
+                if(yushu > 0) {
+                    if(j == ten + 1) {
+                        continue;
+                    }
+                    yushu --;
+                } else {
+                    System.out.println(sorted.get(ten) + "" + sorted.get(j - 1));
+                    break;
+                }
+            }
+        }
     }
 }
