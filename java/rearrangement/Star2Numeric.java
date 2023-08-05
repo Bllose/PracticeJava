@@ -37,6 +37,13 @@ public class Star2Numeric {
         processer(input);
     }
 
+    /**
+     * 基本思路：
+     *  1、输入固定3，但是包含2、5、6、9的话单独加一
+     *  2、所属位置直接根据数组进行计算，单位数与数组长度保持一直，两位数减少一位数
+     *  3、每增加一位，十位数增加一，直到位数小于总数
+     * @param input
+     */
     public static void processer(Integer[] input) {
         List<Integer> inputList = new ArrayList<>(Arrays.asList(input));
         int index = Collections.max(inputList); // 数据所处位置
@@ -55,22 +62,13 @@ public class Star2Numeric {
         List<Integer> sorted = inputList.stream().sorted().collect(Collectors.toList());
         int LEN = sorted.size();
         if(index <= LEN) {
-            System.out.println(sorted.get(index - 1));
+            System.out.println(sorted.get(index));
         } else {
-            int i = index - LEN;
-            int ten = i / (LEN - 1);
-            int yushu = i % (LEN - 1);
-            for(int j = 0; j < sorted.size() ; j ++) {
-                if(yushu > 0) {
-                    if(j == ten + 1) {
-                        continue;
-                    }
-                    yushu --;
-                } else {
-                    System.out.println(sorted.get(ten) + "" + sorted.get(j - 1));
-                    break;
-                }
-            }
+            int decadeIndex = ((int) Math.ceil((double)(index - LEN) / (LEN - 1))) - 1;
+            int unitsIndex = (index - LEN) % (LEN - 1);
+
+            unitsIndex = unitsIndex > decadeIndex ? unitsIndex : unitsIndex==0 ? sorted.size()-1 : unitsIndex-1;
+            System.out.println(sorted.get(decadeIndex) + "" + sorted.get(unitsIndex));
         }
     }
 }
