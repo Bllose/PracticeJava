@@ -64,6 +64,7 @@ public class Star2Numeric {
         if(index <= LEN) {
             System.out.println(sorted.get(index));
         } else {
+            // 当要查找的数据所属位置大于一行数据的长度，则要开始从十位进行比配
             int decadeIndex = ((int) Math.ceil((double)(index - LEN) / (LEN - 1))) - 1;
             int unitsIndex = (index - LEN) % (LEN - 1);
 
