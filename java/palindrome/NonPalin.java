@@ -40,26 +40,26 @@ public class NonPalin {
         int cur = input[postion];
         String ans = null;
 
-        if(postion == input.length) {
-            if(String.valueOf(input).equals(String.valueOf(holder))) {
+        if (postion == input.length) {
+            if (String.valueOf(input).equals(String.valueOf(holder))) {
                 return null;
             } else {
                 return String.valueOf(holder);
             }
-            if(postion > 0){
-                if(postion > 1 && input[postion - 1] != cur) {
-                        if(postion > 2 && input[postion - 2] != cur) {
-                            ans = dfs(input, 0, MAX, holder, postion + 1);
-                        }
-                    }
-                }
-                if(ans == null) {
-                    ans = dfs(input, level + 1, MAX, holder, postion);
-                }
-            } else {
-                holder[postion] = cur;
-                ans = dfs(input, 0, MAX, holder, postion + 1);
-            }
+//            if (postion > 0) {
+//                if (postion > 1 && input[postion - 1] != cur) {
+//                    if (postion > 2 && input[postion - 2] != cur) {
+//                        ans = dfs(input, 0, MAX, holder, postion + 1);
+//                    }
+//                }
+//            }
+//            if (ans == null) {
+//                ans = dfs(input, level + 1, MAX, holder, postion);
+//            }
+        } else {
+            holder[postion] = cur;
+            ans = dfs(input, 0, MAX, holder, postion + 1);
         }
+        return ans;
     }
 }
