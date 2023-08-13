@@ -8,6 +8,11 @@ Arrays.asList(INPUT_STRING.split("SYMBOL")).stream().mapToInt(Integer::parseInt)
 Arrays.stream(INPUT_STRING.split("SYMBOL")).mapToInt(Integer::parseInt).toArray();
 ```
 
+# Converting String into Integer List
+``` Java
+List<Integer> result = Arrays.stream(INPUT_ARRAY).map(Integer::parseInt).collect(Collectors.toList());
+```
+
 ## 二维数组取出部分组成新数组
 ``` Java
 int[] 一维数组 = Arrays.stream(二维数组).mapToInt(二维数组 -> 二维数组[0]).toArray();
