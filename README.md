@@ -8,7 +8,7 @@ int[] result = Arrays.asList(STRING.split("SYMBOL")).stream().mapToInt(Integer::
 int[] result = Arrays.stream(STRING.split("SYMBOL")).mapToInt(Integer::parseInt).toArray();
 ```
 
-# Converting String into Integer List
+## Converting String into Integer List
 ``` Java
 List<Integer> result = Arrays.stream(STRING.split("SYMBOL").map(Integer::parseInt).collect(Collectors.toList());
 ```
