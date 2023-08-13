@@ -1,7 +1,11 @@
 # PracticeJava
 ## Converting String into Integer array
 ``` Java
-Arrays.asList(INPUT_STRING.split(",")).stream().mapToInt(Integer::parseInt).toArray();
+Arrays.asList(INPUT_STRING.split("SYMBOL")).stream().mapToInt(Integer::parseInt).toArray();
+```
+
+``` Java
+Arrays.stream(INPUT_STRING.split("SYMBOL")).mapToInt(Integer::parseInt).toArray();
 ```
 
 ## 二维数组取出部分组成新数组
