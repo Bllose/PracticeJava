@@ -13,6 +13,7 @@ int[] result = Arrays.stream(STRING.split("SYMBOL")).mapToInt(Integer::parseInt)
 ## Converting String into String Array
 ``` Java
 String[] result = Arrays.stream(STRING.split("SYMBOL")).toArray(String[]::new);
+String[] result = STRING.split("SYMBOL");
 ```
 
 ## Converting String into Integer List
