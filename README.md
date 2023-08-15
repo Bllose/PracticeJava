@@ -1,7 +1,9 @@
 # PracticeJava
-## Converting String into Integer Array
+## Converting String into Integer(char) Array
 ``` Java
 int[] result = Arrays.asList(STRING.split("SYMBOL")).stream().mapToInt(Integer::parseInt).toArray();
+int[] result = STRING.chars().toArray(); // 没有分隔符，直接分割每一个字符
+char[] result = STRING.toCharArray();    // 没有分隔符，直接分割每一个字符
 ```
 
 ``` Java
