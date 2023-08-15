@@ -1,5 +1,5 @@
 # PracticeJava
-## Converting String into Integer array
+## Converting String into Integer Array
 ``` Java
 int[] result = Arrays.asList(STRING.split("SYMBOL")).stream().mapToInt(Integer::parseInt).toArray();
 ```
@@ -8,10 +8,16 @@ int[] result = Arrays.asList(STRING.split("SYMBOL")).stream().mapToInt(Integer::
 int[] result = Arrays.stream(STRING.split("SYMBOL")).mapToInt(Integer::parseInt).toArray();
 ```
 
+## Converting String into String Array
+``` Java
+String[] result = Arrays.stream(STRING.split("SYMBOL")).toArray(String[]::new);
+```
+
 ## Converting String into Integer List
 ``` Java
 List<Integer> result = Arrays.stream(STRING.split("SYMBOL").map(Integer::parseInt).collect(Collectors.toList());
 ```
+
 
 ## 二维数组取出部分组成新数组
 ``` Java
