@@ -27,6 +27,11 @@ List<Integer> result = Arrays.stream(STRING.split("SYMBOL").map(Integer::parseIn
 int[] 一维数组 = Arrays.stream(二维数组).mapToInt(二维数组 -> 二维数组[0]).toArray();
 ```
 
+## 初始化指定值的列表
+``` Java
+new ArrayList<>(Collections.nCopies(SIZE, INIT_VALUE));
+```
+
 # Collectors
 Implementations of Collector that implement various useful reduction operations, such as accumulating elements into collections, summarizing elements according to various criteria, etc.  
 The following are examples of using the predefined collectors to perform common mutable reduction tasks:
