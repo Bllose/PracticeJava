@@ -1,4 +1,16 @@
-# PracticeJava
+# IMPORTS
+``` Java
+import java.util.Math;
+```
+
+# FUNCTIONS
+
+## java.util.*
+``` Java
+int theSqrt = (int) Math.sqrt(NUM); // 对一个数开平方。 square root 平方根
+```
+
+# ARRAY && LIST
 ## Converting String into Integer(char) Array
 ``` Java
 int[] result = Arrays.asList(STRING.split("SYMBOL")).stream().mapToInt(Integer::parseInt).toArray();
