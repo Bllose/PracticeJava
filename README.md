@@ -1,6 +1,9 @@
 # IMPORTS
 ``` Java
 import java.util.Math;
+
+import java.util.Queue;
+import java.util.LinkedList;
 ```
 
 # FUNCTIONS
@@ -8,6 +11,11 @@ import java.util.Math;
 ## java.util.*
 ``` Java
 int theSqrt = (int) Math.sqrt(NUM); // 对一个数开平方。 square root 平方根
+```
+
+``` Java
+Queue<int[]> q = new LinkedList<>();
+q.offer(new int[]{x,y}); // 添加元素
 ```
 
 # ARRAY && LIST
