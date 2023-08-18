@@ -107,3 +107,11 @@ Map<Boolean, List<Student>> passingFailing = students.stream()
 Arrays.sort(二维数组, Comparator.comparing((Integer[] arr) -> arr[0]).thenComparing((Integer[] arr) -> -arr[1]));
 ```
 其中 `-arr[1]` 意味着针对数组第二个元素进行从大到小的排序。
+
+## Map
+``` Java
+Map<Integer, Integer> recorder = new HashMap<>();
+List<Map.Entry<Integer, Integer>> entries = new ArrayList<>(recorder.entrySet());
+// 此处 Map.Entry::getValue 是非静态方法，不能直接用于静态方法中
+entries.sort(Comparator.comparing(Map.Entry::getValue, Comparator.reverseOrder()).thenComparing(Map.Entry::getKey));
+```
