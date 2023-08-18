@@ -73,7 +73,8 @@ int[] 一维数组 = Arrays.stream(二维数组).mapToInt(二维数组 -> 二维
 
 ## 初始化指定值的列表
 ``` Java
-new ArrayList<>(Collections.nCopies(SIZE, INIT_VALUE));
+List<Integer> NEW_LIST = new ArrayList<>(Collections.nCopies(SIZE, INIT_VALUE));
+List<String> NEW_LIST = new ArrayList<>(Collections.nCopies(SIZE, STRING_VALUE));
 ```
 
 # Collectors
