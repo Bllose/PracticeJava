@@ -118,6 +118,8 @@ Arrays.sort(二维数组, Comparator.comparing((Integer[] arr) -> arr[0]).thenCo
 其中 `-arr[1]` 意味着针对数组第二个元素进行从大到小的排序。
 
 ## Map
+
+### 针对Key、value有特定顺序场景下的解决办法
 ``` Java
 Map<Integer, Integer> recorder = new HashMap<>();
 List<Map.Entry<Integer, Integer>> entries = new ArrayList<>(recorder.entrySet());
@@ -135,4 +137,13 @@ entries.sort(Comparator
                   .<Map.Entry<Integer, Integer>>comparingInt(Map.Entry::getValue)
                   .reversed()
                   .thenComparing(Map.Entry::getKey));
+```
+
+``` Java
+/*
+利用Java对象的特性达到目的。
+TreeMap由于其红白树构建平衡二叉树的特性，使得查找效率提升。 同时它元素唯一、构建时可以指明顺序或逆序。
+LinkedHashSet严格按照插入顺序
+*/
+TreeMap<Integer, LinkedHashSet<Integer>> map = new TreeMap<>(Collections.reverseOrder());
 ```
