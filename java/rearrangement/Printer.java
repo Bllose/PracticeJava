@@ -35,18 +35,29 @@ public class Printer {
 
         List<Map.Entry<Integer, Integer>> entries = new ArrayList<>(recorder.entrySet());
 
-        Collections.sort(entries, (o1, o2) -> {
-           if(o1.getValue() == o2.getValue()) {
-               return o1.getKey() - o2.getKey();
-           }
-           return o2.getValue() - o1.getValue();
-        });
+//        Collections.sort(entries, (o1, o2) -> {
+//           if(o1.getValue() == o2.getValue()) {
+//               return o1.getKey() - o2.getKey();
+//           }
+//           return o2.getValue() - o1.getValue();
+//        });
 
+//        entries.sort(Comparator.comparing(Map.Entry::getValue, Comparator.reverseOrder()));
+//        entries.sort(Map.Entry.comparingByKey());
+        entries.sort(Comparator
+                .<Map.Entry<Integer, Integer>>comparingInt(Map.Entry::getValue)
+                .reversed()
+                .thenComparing(Map.Entry::getKey));
 
-
-//        Non-static method cannot be referenced from a static context
-//        entries.sort(Comparator.comparing(Map.Entry::getValue, Comparator.reverseOrder()).thenComparing(Map.Entry::getKey));
-//        recorder = entries.stream().collect(Collectors.toMap(Map.Entry::getKey, o -> o));
+        Map<String, String> map = new HashMap<>();
+        List<Map.Entry<String,String>> curList = new ArrayList<>(map.entrySet());
+//        curList.sort(Comparator
+//                .<Map.Entry<String, String>>comparing(Map.Entry::getValue, Comparator.naturalOrder())
+//                .reversed()
+//                .thenComparing(Map.Entry::getKey));
+//        curList.sort(Comparator
+//                .<Map.Entry<String, String>>comparing(entry -> entry.getValue(), Comparator.reverseOrder())
+//                .thenComparing(entry -> entry.getKey()));
 
         StringBuffer sb = new StringBuffer();
         for(int i = 0; i < entries.size(); i ++) {
@@ -54,4 +65,11 @@ public class Printer {
         }
         System.out.println(sb);
     }
+
+//    private void nonStateFunction(List<Map.Entry<Integer, Integer>> entries, Map<Integer, Integer> recorder) {
+//        recorder = entries.stream().collect(Collectors.toMap(Map.Entry::getKey, o -> o));
+//
+//        //        Non-static method cannot be referenced from a static context
+//        entries.sort(Comparator.comparing(Map.Entry::getValue, Comparator.reverseOrder()).thenComparing(Map.Entry::getKey));
+//    }
 }
