@@ -117,6 +117,6 @@ List<Map.Entry<Integer, Integer>> entries = new ArrayList<>(recorder.entrySet())
 entries.sort(Comparator.comparing(Map.Entry::getValue, Comparator.reverseOrder()).thenComparing(Map.Entry::getKey));
 
 // 实际上单单使用值进行逆序排序是可行的
-entries.sort(Comparator.comparing(Map.Entry::getValue, Comparator.reverseOrder());
-entries.sort(Map.Entry.comparingByValue(Comparator.reverseOrder());
+entries.sort(Comparator.comparing(Map.Entry::getValue, Comparator.reverseOrder()));
+entries.sort(Map.Entry.comparingByValue(Comparator.reverseOrder()));
 ```
