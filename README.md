@@ -113,10 +113,17 @@ Arrays.sort(二维数组, Comparator.comparing((Integer[] arr) -> arr[0]).thenCo
 Map<Integer, Integer> recorder = new HashMap<>();
 List<Map.Entry<Integer, Integer>> entries = new ArrayList<>(recorder.entrySet());
 
-// TO-FIX 此处 Map.Entry::getValue 是非静态方法，不能直接用于静态方法中
-entries.sort(Comparator.comparing(Map.Entry::getValue, Comparator.reverseOrder()).thenComparing(Map.Entry::getKey));
+// 方法一
+Collection.sort(entries, (o1, o2) -> {
+  if(o1.getValue() == o2.getValue()) {
+    return o1.getKey() - o2.getValue(); // 顺序
+  }
+  return o2.getValue() - o1.getValue(); // 逆序
+});
 
-// 实际上单单使用值进行逆序排序是可行的
-entries.sort(Comparator.comparing(Map.Entry::getValue, Comparator.reverseOrder()));
-entries.sort(Map.Entry.comparingByValue(Comparator.reverseOrder()));
+// 方法二
+entries.sort(Comparator
+                  .<Map.Entry<Integer, Integer>>comparingInt(Map.Entry::getValue)
+                  .reversed()
+                  .thenComparing(Map.Entry::getKey));
 ```
