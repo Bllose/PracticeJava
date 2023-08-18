@@ -41,6 +41,7 @@ exp.substring(1, 4); // "sub" 4-1=3:子字符串长度为3; 1:直接作为index�
 ## Converting String into Integer(char) Array
 ``` Java
 int[] result = Arrays.asList(STRING.split("SYMBOL")).stream().mapToInt(Integer::parseInt).toArray();
+int[] result = Arrays.stream(STRING.split("SYMBOL")).mapToInt(Integer::parseInt).toArray();
 int[] result = STRING.chars().toArray(); // 没有分隔符，直接分割每一个字符
 char[] result = STRING.toCharArray();    // 没有分隔符，直接分割每一个字符
 ```
