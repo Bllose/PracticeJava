@@ -30,6 +30,10 @@ s.pop();
 s.peek();
 ```
 
+``` Java
+Arrays.stream(int[] ARRAY).sum(); // 直接获取求和结果
+```
+
 ## substring
 ``` Java
 String exp = "(sub (mul 2 4) (div 9 3))";
