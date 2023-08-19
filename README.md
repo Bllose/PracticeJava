@@ -69,6 +69,11 @@ char[] result = STRING.toCharArray();    // 没有分隔符，直接分割每一
 int[] result = Arrays.stream(STRING.split("SYMBOL")).mapToInt(Integer::parseInt).toArray();
 ```
 
+### 以此类推
+``` Java
+Arrays.stream(STRING.split("SYMBOL")).mapToLong(Long::parseLong).toArray();
+```
+
 ## Converting String into String Array
 ``` Java
 String[] result = Arrays.stream(STRING.split("SYMBOL")).toArray(String[]::new);
