@@ -96,6 +96,10 @@ int[] 一维数组 = Arrays.stream(二维数组).mapToInt(二维数组 -> 二维
 List<Integer> NEW_LIST = new ArrayList<>(Collections.nCopies(SIZE, INIT_VALUE));
 List<String> NEW_LIST = new ArrayList<>(Collections.nCopies(SIZE, STRING_VALUE));
 ```
+``` Java
+int[]  res = new int[LENGTH];
+Arrays.fill(res, INITIAL_NUM);
+```
 
 # Collectors
 Implementations of Collector that implement various useful reduction operations, such as accumulating elements into collections, summarizing elements according to various criteria, etc.  
