@@ -9,6 +9,9 @@ import java.util.Stack;
 
 import java.util.stream.Collectors;
 import java.util.Comparator;
+
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 ```
 
 # FUNCTIONS
@@ -39,6 +42,18 @@ Arrays.stream(int[] ARRAY).sum(); // 直接获取求和结果
 String exp = "(sub (mul 2 4) (div 9 3))";
 exp.charAt(0); // '('
 exp.substring(1, 4); // "sub" 4-1=3:子字符串长度为3; 1:直接作为index，指定起始字符所在坐标。 4:作为结束字符，但是该字符不会存在子字符串中。
+```
+
+## Character
+``` Java
+char[] cs = STRING.toCharArray();
+for(char c: cs) {
+  if(Character.isLetter(c)) {
+    // 针对字符的处理逻辑
+  } else if (Character.isDigit(c)) {
+    // 针对数字的处理逻辑
+  }
+}
 ```
 
 # ARRAY && LIST
@@ -118,6 +133,8 @@ Arrays.sort(二维数组, Comparator.comparing((Integer[] arr) -> arr[0]).thenCo
 其中 `-arr[1]` 意味着针对数组第二个元素进行从大到小的排序。
 
 ## Map
+
+### 针对Key、value有特定顺序场景下的解决办法
 ``` Java
 Map<Integer, Integer> recorder = new HashMap<>();
 List<Map.Entry<Integer, Integer>> entries = new ArrayList<>(recorder.entrySet());
@@ -135,4 +152,13 @@ entries.sort(Comparator
                   .<Map.Entry<Integer, Integer>>comparingInt(Map.Entry::getValue)
                   .reversed()
                   .thenComparing(Map.Entry::getKey));
+```
+
+``` Java
+/*
+利用Java对象的特性达到目的。
+TreeMap由于其红白树构建平衡二叉树的特性，使得查找效率提升。 同时它元素唯一、构建时可以指明顺序或逆序。
+LinkedHashSet严格按照插入顺序
+*/
+TreeMap<Integer, LinkedHashSet<Integer>> map = new TreeMap<>(Collections.reverseOrder());
 ```
