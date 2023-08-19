@@ -41,6 +41,18 @@ exp.charAt(0); // '('
 exp.substring(1, 4); // "sub" 4-1=3:子字符串长度为3; 1:直接作为index，指定起始字符所在坐标。 4:作为结束字符，但是该字符不会存在子字符串中。
 ```
 
+## Character
+``` Java
+char[] cs = STRING.toCharArray();
+for(char c: cs) {
+  if(Character.isLetter(c)) {
+    // 针对字符的处理逻辑
+  } else if (Character.isDigit(c)) {
+    // 针对数字的处理逻辑
+  }
+}
+```
+
 # ARRAY && LIST
 ## Converting String into Integer(char) Array
 ``` Java
