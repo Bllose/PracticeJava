@@ -24,6 +24,7 @@ int theSqrt = (int) Math.sqrt(NUM); // 对一个数开平方。 square root 平�
 ``` Java
 Queue<int[]> q = new LinkedList<>();
 q.offer(new int[]{x,y}); // 添加元素
+q.poll();
 ```
 
 ``` Java
