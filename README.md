@@ -32,11 +32,18 @@ Stack<String> s = new Starck<>();
 s.push(STRING);
 s.pop();
 s.peek();
+```
 
-s.getLast();
-s.getFirst();
-s.removeLast();
-s.removeFirst(); // 实际上 LinkedList 下 pop 方法调用的就是 removeFirst 方法。
+``` Java
+LinkedList<E> q = new LinkedList<>();
+q.getLast();
+q.getFirst();
+q.removeLast();
+q.removeFirst(); // 实际上 LinkedList 下 pop 方法调用的就是 removeFirst 方法。
+
+q.poll(); // -> f = first; unlinkFirst(f)
+q.pop(); // -> removeFirst()
+q.push(E e); // -> addFirst(e)
 ```
 
 ``` Java
