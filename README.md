@@ -52,10 +52,18 @@ Arrays.stream(int[] ARRAY).sum(); // 直接获取求和结果
 
 ## substring
 ``` Java
+String[] a = {"a", "b", "c", "d"};
+Arrays.copyOfRange(a, 2, 3); // -> c
+Arrays.copyOf(a, 2); // {"a", "b"}
+```
+
+``` Java
 String exp = "(sub (mul 2 4) (div 9 3))";
 exp.charAt(0); // '('
 exp.substring(1, 4); // "sub" 4-1=3:子字符串长度为3; 1:直接作为index，指定起始字符所在坐标。 4:作为结束字符，但是该字符不会存在子字符串中。
 ```
+
+
 
 ## Character
 ``` Java
