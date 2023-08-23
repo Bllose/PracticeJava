@@ -170,7 +170,7 @@ Map<Integer, Integer> recorder = new HashMap<>();
 List<Map.Entry<Integer, Integer>> entries = new ArrayList<>(recorder.entrySet());
 
 // 方法一
-Collection.sort(entries, (o1, o2) -> {
+Collections.sort(entries, (o1, o2) -> {
   if(o1.getValue() == o2.getValue()) {
     return o1.getKey() - o2.getValue(); // 顺序
   }
