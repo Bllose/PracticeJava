@@ -35,15 +35,15 @@ s.peek();
 ```
 
 ``` Java
-LinkedList<E> q = new LinkedList<>();
-q.getLast();
-q.getFirst();
-q.removeLast();
-q.removeFirst(); // 实际上 LinkedList 下 pop 方法调用的就是 removeFirst 方法。
+LinkedList<E> l = new LinkedList<>();
+l.getLast();
+l.getFirst();
+l.removeLast();
+l.removeFirst(); // 实际上 LinkedList 下 pop 方法调用的就是 removeFirst 方法。
 
-q.poll(); // -> f = first; unlinkFirst(f)
-q.pop(); // -> removeFirst()
-q.push(E e); // -> addFirst(e)
+l.poll(); // -> f = first; unlinkFirst(f)
+l.pop(); // -> removeFirst()
+l.push(E e); // -> addFirst(e)
 ```
 
 ``` Java
